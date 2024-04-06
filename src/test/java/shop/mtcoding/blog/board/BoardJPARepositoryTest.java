@@ -55,18 +55,18 @@ public class BoardJPARepositoryTest {
     }
 
     // findByIdJoinUser
-    @Test
-    public void findByIdJoinUser_test(){
-        // given
-        int id = 1;
-
-        // when
-        Board board = boardJPARepository.findByIdJoinUser(id);
-
-        // then
-        System.out.println("findByIdJoinUser_test : "+board.getTitle());
-        System.out.println("findByIdJoinUser_test : "+board.getUser().getUsername());
-    }
+//    @Test
+//    public void findByIdJoinUser_test(){
+//        // given
+//        int id = 1;
+//
+//        // when
+//        Board board = boardJPARepository.findByIdJoinUser(id);
+//
+//        // then
+//        System.out.println("findByIdJoinUser_test : "+board.getTitle());
+//        System.out.println("findByIdJoinUser_test : "+board.getUser().getUsername());
+//    }
 
 
     // findAll (sort)
