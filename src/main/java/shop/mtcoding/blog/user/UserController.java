@@ -1,3 +1,5 @@
+package shop.mtcoding.blog.user;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -5,9 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import shop.mtcoding.blog.user.User;
-import shop.mtcoding.blog.user.UserRequest;
-import shop.mtcoding.blog.user.UserService;
 
 @RequiredArgsConstructor
 @Controller
@@ -48,12 +47,12 @@ public class UserController {
 
     @GetMapping("/join-form")
     public String joinForm() {
-        return "user/join-form";
+        return "/user/join-form";
     }
 
     @GetMapping("/login-form")
     public String loginForm() {
-        return "user/login-form";
+        return "/user/login-form";
     }
 
     @GetMapping("/logout")

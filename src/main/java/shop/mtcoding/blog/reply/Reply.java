@@ -1,4 +1,4 @@
-package shop.mtcoding.blog;
+package shop.mtcoding.blog.reply;
 
 import jakarta.persistence.*;
 import lombok.Builder;
