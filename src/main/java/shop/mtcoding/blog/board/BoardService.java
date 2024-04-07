@@ -25,7 +25,7 @@ public class BoardService {
     @Transactional
     public void 글수정(int boardId, int sessionUserId, BoardRequest.UpdateDTO reqDTO){
         // 1. 조회 및 예외처리
-        Board board = boardJPARepository.findById(boardId)
+        Board board = boardJPARepository.findById(boardId) //JPA의 CRUD쿼리중에 유일하게 얘만 옵셔널을 감싸서 엔티티를 반환해준다.orElseThrow 가능
                 .orElseThrow(() -> new Exception404("게시글을 찾을 수 없습니다"));
 
         // 2. 권한 처리
@@ -72,7 +72,18 @@ public class BoardService {
             }
         }
 
-        board.setOwner(isOwner);
+        board.setBoardOwner(isOwner);
+
+        board.getReplies().forEach(reply ->{
+            boolean isReplyOwner = false;
+
+        if(sessionUser != null){
+            if(reply.getUser().getId() == sessionUser.getId()){
+                isReplyOwner = true;
+            }
+        }
+        reply.setReplyOwner(isReplyOwner);
+    });
 
         return board;
     }
